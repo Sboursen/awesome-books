@@ -1,11 +1,9 @@
-window.localStorage.clear()
-let books = [];
-let storedBooks = JSON.parse(localStorage.getItem('books')) || [];
+let books = JSON.parse(localStorage.getItem('books')) || [];
 
-//localStorage = {"books":[{},{},{}]}
+
 let container = document.getElementById('container');
 
-storedBooks.map((book, index) => {
+books.map((book, index) => {
   displayBook(book, index);
 });
 
@@ -36,7 +34,7 @@ function displayBook(book, index) {
 
 function removeBook(book, index) {
   let bookContainer = document.getElementById(index);
-  books.splice(index, index + 1);
+  books = books.filter((el, i) => el.title !== book.title || el.author !== book.author);
   localStorage.setItem('books', JSON.stringify(books));
   container.removeChild(bookContainer);
 }
