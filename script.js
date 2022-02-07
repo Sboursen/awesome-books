@@ -1,13 +1,7 @@
-let books;
 const container = document.getElementById('container');
-
-// = [
-//   { title: '1', author: '1' },
-//   { title: '2', author: '2' },
-//   { title: '3', author: '3' },
-//   { title: '4', author: '4' },
-// ];
-
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+let books;
 const getItems = () => {
   if (localStorage.getItem('books') !== null) {
     books = JSON.parse(localStorage.getItem('books'));
@@ -19,29 +13,10 @@ const getItems = () => {
 
 getItems();
 
-const storeItems = () => {
-  localStorage.setItem('books', JSON.stringify(books));
-};
-
-const updateLocalStorage = (e) => {
-  if (e.currentTarget.classList.contains('book-container'))
-    console.log('hey');
-  storeItems();
-};
-
-window.addEventListener('DOMContentLoaded', getItems);
-
-container.addEventListener('click', updateLocalStorage);
-
-// book =
-
-const titleInput = document.querySelector('#title');
-const authorInput = document.querySelector('#author');
-
 function removeBook(e) {
-  let bookContainer = e.currentTarget.parentNode;
+  const bookContainer = e.currentTarget.parentNode;
   if (bookContainer.classList.contains('book-container')) {
-    let index = Array.prototype.indexOf.call(
+    const index = Array.prototype.indexOf.call(
       container.children,
       bookContainer,
     );
@@ -50,6 +25,7 @@ function removeBook(e) {
     authorInput.value = '';
     container.removeChild(bookContainer);
     e.stopPropagation();
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
@@ -86,6 +62,7 @@ function addBook() {
   displayBook(book, books.length - 1);
   titleInput.value = '';
   authorInput.value = '';
+  localStorage.setItem('books', JSON.stringify(books));
 }
 
 addButton.addEventListener('click', addBook);
