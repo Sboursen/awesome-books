@@ -34,7 +34,7 @@ function displayBook(book, index) {
 
 function removeBook(book, index) {
   let bookContainer = document.getElementById(index);
-  books = books.filter((el, i) => el.title !== book.title || el.author !== book.author);
+  books = books.filter((el, i) => el !== book);
   localStorage.setItem('books', JSON.stringify(books));
   container.removeChild(bookContainer);
 }
