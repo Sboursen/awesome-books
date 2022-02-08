@@ -4,30 +4,37 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>Awesome books collection</title>
 </head>
 
 <body>
-  <h1>Awesome Books</h1>
-  <div id='container'>
-  </div>
+  <div class="bg"></div>
+  <h1><i class="fad fa-book-heart"></i>
+    <span>All awesome books</span>
+  </h1>
+
+  <table id='container'>
+  </table>
 
   <form>
+
     <div class="input-container">
-      <label for="title"></label>
-      <input type="text" name="title" value="" id="title">
-      <small class="title-alert">title</small>
+      <h2> Add a new book </h2>
+      <label for="title">
+        <h3 class="label">Title label</h3>
+        <input type="text" name="title" value="" id="title">
+      </label>
+      <small class="title-alert"></small>
     </div>
     <div class="input-container">
-      <label for="author"></label>
-      <input type="text" name="author" value="" id="author">
-      <small class="author-alert">author</small>
+      <label for="author">
+        <h3 class="label">Author label</h3>
+        <input type="text" name="author" value="" id="author">
+      </label>
+      <small class="author-alert"></small>
     </div>
-    <button type="button" name="button" class="add-book buttons">Add
+    <button type="button" name="button" class="add-book button">Add
       Book</button>
   </form>
 

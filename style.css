@@ -1,19 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+:root {
+  --iron: #d3d3d3;
+  --red-orange: #f6362f;
+  --shark: #282931;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  padding: 20px 0;
   width: 100%;
-  background-color: white;
+  height: 100vh;
+  background-color: var(--iron);
   font-weight: 600;
   font-size: 20px;
   font-family: Inter, sans-serif;
-}
-
-a {
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ||Override button default style------------------------- */
@@ -27,8 +36,30 @@ button {
   outline: inherit;
 }
 
+td {
+  text-align: center;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.5%;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.button-table {
+  border: 1px solid;
+  box-shadow: 1px 5px black;
+}
+
 .button {
   background-color: hsl(160deg 100% 30%);
+  padding: 12px;
   border: 0.5px solid transparent;
   color: white;
   border-radius: 4px;
@@ -48,3 +79,92 @@ button {
 }
 
 /* ||Override button default style------------------------- */
+.bg {
+  position: absolute;
+  top: 0;
+  background-image: url('.d/assets/images/bg-image.jpg');
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+h1 {
+  color: var(--shark);
+}
+
+h2 {
+  text-align: center;
+}
+
+/* ||Book Container------------------------- */
+#container {
+  width: 90%;
+  min-height: 150px;
+  border: 2px solid var(--shark);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px double;
+}
+
+#container > div hr {
+  margin: 0;
+  padding: 0;
+}
+
+/* ||Form------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 10%;
+  border: 2px solid var(--shark);
+  padding: 12px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: smaller;
+  margin: 5px;
+}
+
+input {
+  height: 30px;
+  padding: 0 5px;
+}
+
+small {
+  width: 50%;
+  align-self: flex-end;
+  text-align: center;
+  font-size: smaller;
+  min-height: 12px;
+}
+
+.add-book {
+  margin-top: 12px;
+  align-self: center;
+}
