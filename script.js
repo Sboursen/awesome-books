@@ -1,6 +1,8 @@
 /* eslint-disable max-classes-per-file */
+
 let books = JSON.parse(localStorage.getItem('books')) || [];
-// book class
+
+// |||book class
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -8,12 +10,11 @@ class Book {
   }
 }
 
-// user interface interactions
+// |||user interface interactions
 class UserInterface {
   static container = document.getElementById('container');
 
   static titleInput = document.querySelector('#title');
-  // static titleInput = 'Hello';
 
   static authorInput = document.querySelector('#author');
 
@@ -61,7 +62,7 @@ class UserInterface {
   }
 }
 
-// Events -----------------------------------------
+// |||Events -----------------------------------------
 
 // populate the local storage items
 books.forEach((book, index) => {
@@ -74,6 +75,8 @@ UserInterface.addButton.addEventListener(
   UserInterface.addBook,
 );
 
+
+// |||Contact form validation
 
 
 
