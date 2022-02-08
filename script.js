@@ -53,7 +53,7 @@ class UserInterface {
       document.createElement('td');
 
     const removeButton = document.createElement('button');
-    removeButton.classList.add('button-table');
+    removeButton.classList.add('remove-button');
     removeButton.innerHTML =
       "<i class='fas fa-trash-alt'></i> Remove";
 
