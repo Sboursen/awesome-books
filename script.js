@@ -41,32 +41,35 @@ class UserInterface {
   }
 
   static displayBook(book, index) {
-    const bookContainer = document.createElement('div');
+    const bookContainer = document.createElement('tr');
     bookContainer.id = index;
+    const text = document.createElement('td');
+    text.innerHTML = `${book.title} by ${book.author}`;
 
-    const text = document.createElement('p');
-    text.innerHTML =
-      `Title: ${book.title}<br>` +
-      `Author: ${book.author}<br>`;
     bookContainer.append(text);
+    const removeButtonContainer = document.createElement('td');
 
     const removeButton = document.createElement('button');
-    removeButton.innerHTML = 'Remove';
+    removeButton.classList.add('button-table');
+    removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
+
     removeButton.onclick = () => {
       UserInterface.removeBook(book, index);
     };
-    bookContainer.append(removeButton);
-    const breakline = document.createElement('hr');
-    bookContainer.append(breakline);
-    UserInterface.container.append(bookContainer);
+    removeButtonContainer.append(removeButton);
+    bookContainer.append(removeButtonContainer);
+
+    return bookContainer;
   }
 }
 
 // |||Events -----------------------------------------
 
 // populate the local storage items
+
 books.forEach((book, index) => {
-  UserInterface.displayBook(book, index);
+  const bookContainer = UserInterface.displayBook(book, index);
+  UserInterface.container.appendChild(bookContainer);
 });
 
 // add ba book when button is clicked
@@ -75,10 +78,7 @@ UserInterface.addButton.addEventListener(
   UserInterface.addBook,
 );
 
-
 // |||Contact form validation
-
-
 
 /*
 let books = JSON.parse(localStorage.getItem('books')) || [];

@@ -36,6 +36,27 @@ button {
   outline: inherit;
 }
 
+td {
+  text-align: center;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.5%;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.button-table {
+  border: 1px solid;
+  box-shadow: 1px 5px black;
+}
+
 .button {
   background-color: hsl(160deg 100% 30%);
   padding: 12px;
@@ -43,6 +64,7 @@ button {
   color: white;
   border-radius: 4px;
   width: fit-content;
+  box-shadow: black;
 }
 
 .button:hover {
@@ -74,33 +96,32 @@ button {
 h1 {
   color: var(--shark);
 }
-
+h2{
+  text-align: center;
+}
 /* ||Book Container------------------------- */
-
 #container {
   width: 90%;
   min-height: 150px;
-  overflow-y: scroll;
   border: 2px solid var(--shark);
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-#container > div {
+#container>div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid red;
+  border: 1px double;
 }
 
-#container > div hr {
+#container>div hr {
   margin: 0;
   padding: 0;
 }
 
 /* ||Form------------------------- */
-
 form {
   display: flex;
   flex-direction: column;
@@ -114,6 +135,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  justify-content: center;
 }
 
 label {
