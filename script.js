@@ -13,29 +13,31 @@ class UserInterface {
   static container = document.getElementById('container');
 
   static titleInput = document.querySelector('#title');
+  // static titleInput = 'Hello';
 
   static authorInput = document.querySelector('#author');
 
   static addButton = document.querySelector('.add-book');
 
   static addBook() {
+    console.log(UserInterface.titleInput);
     const book = new Book(
-      this.titleInput.value,
-      this.authorInput.value,
+      UserInterface.titleInput.value,
+      UserInterface.authorInput.value,
     );
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
 
-    this.titleInput.value = '';
-    this.titleInput.value = '';
-    this.displayBook(book, books.length - 1);
+    UserInterface.titleInput.value = '';
+    UserInterface.authorInput.value = '';
+    UserInterface.displayBook(book, books.length - 1);
   }
 
   static removeBook(book, index) {
     const bookContainer = document.getElementById(index);
     books = books.filter((el) => el !== book);
     localStorage.setItem('books', JSON.stringify(books));
-    this.container.removeChild(bookContainer);
+    UserInterface.container.removeChild(bookContainer);
   }
 
   static displayBook(book, index) {
@@ -51,21 +53,27 @@ class UserInterface {
     const removeButton = document.createElement('button');
     removeButton.innerHTML = 'Remove';
     removeButton.onclick = () => {
-      removeBook(book, index);
+      UserInterface.removeBook(book, index);
     };
     bookContainer.append(removeButton);
     const breakline = document.createElement('hr');
     bookContainer.append(breakline);
-    this.container.append(bookContainer);
+    UserInterface.container.append(bookContainer);
   }
 }
 
-
 // Events -----------------------------------------
 
-// add book event
-UserInterface.addButton.addEventListener('click', UserInterface.addBook);
+// populate the local storage items
+books.forEach((book, index) => {
+  UserInterface.displayBook(book, index);
+});
 
+// add ba book when button is clicked
+UserInterface.addButton.addEventListener(
+  'click',
+  UserInterface.addBook,
+);
 
 /*
 let books = JSON.parse(localStorage.getItem('books')) || [];
