@@ -46,16 +46,14 @@ class UserInterface {
     const bookContainer = document.createElement('tr');
     bookContainer.id = index;
     const text = document.createElement('td');
-    text.innerHTML = `${book.title} by ${book.author}`;
+    text.innerHTML = `"${book.title}" by ${book.author}`;
 
     bookContainer.append(text);
-    const removeButtonContainer =
-      document.createElement('td');
+    const removeButtonContainer = document.createElement('td');
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('remove-button');
-    removeButton.innerHTML =
-      "<i class='fas fa-trash-alt'></i> Remove";
+    removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
 
     removeButton.onclick = () => {
       UserInterface.removeBook(book, index);

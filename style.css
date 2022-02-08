@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 :root {
   --iron: #d3d3d3;
@@ -117,11 +117,17 @@ h2 {
   text-align: center;
 }
 
+.form-title {
+  font-size: 20px;
+  margin: 0;
+  padding: 6px;
+}
+
 /* ||Book Container------------------------- */
 #container {
   width: 90%;
   overflow-y: scroll;
-  height: 285px;
+  height: 40%;
   border: 2px solid var(--shark);
   display: flex;
   flex-direction: column;
@@ -171,6 +177,5 @@ small {
 }
 
 .add-book {
-  margin-top: 12px;
   align-self: center;
 }
