@@ -2,24 +2,19 @@
 
 # Awesome books
 
-> Welcome to our project!!
-
-![screenshot](resources/app-screenshot.png)
+> "Awesome books" is a simple website that displays a list of books and allows the user to add and remove books from that list.
+> By building this application
 
 <details>
   <summary>Please click to view more sections</summary>
-  
 
 </details>
 
 ## Built With
 
 - HTML
+- CSS
 - Javascript
-
-## Live Demo
-
-[Live Demo Link]()
 
 ## Authors
 
@@ -39,7 +34,6 @@
 - GitHub: @githubridwan
 - Twitter: @twitterridwan
 - LinkedIn: LinkedIn
-
 
 ## Show your support
 
