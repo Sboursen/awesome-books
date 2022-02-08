@@ -96,9 +96,11 @@ tr:nth-child(even) {
 h1 {
   color: var(--shark);
 }
-h2{
+
+h2 {
   text-align: center;
 }
+
 /* ||Book Container------------------------- */
 #container {
   width: 90%;
