@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  padding: 50px 0;
+  padding: 20px 0;
   width: 100%;
   height: 100vh;
   background-color: var(--iron);
@@ -38,6 +38,7 @@ button {
 
 .button {
   background-color: hsl(160deg 100% 30%);
+  padding: 12px;
   border: 0.5px solid transparent;
   color: white;
   border-radius: 4px;
@@ -72,4 +73,75 @@ button {
 
 h1 {
   color: var(--shark);
+}
+
+/* ||Book Container------------------------- */
+
+#container {
+  width: 90%;
+  min-height: 150px;
+  overflow-y: scroll;
+  border: 2px solid var(--shark);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+#container > div hr {
+  margin: 0;
+  padding: 0;
+}
+
+/* ||Form------------------------- */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 10%;
+  border: 2px solid var(--shark);
+  padding: 12px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+label {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: smaller;
+  margin: 5px;
+}
+
+input {
+  height: 30px;
+  padding: 0 5px;
+}
+
+small {
+  width: 50%;
+  align-self: flex-end;
+  text-align: center;
+  font-size: smaller;
+  min-height: 12px;
+}
+
+.add-book {
+  margin-top: 12px;
+  align-self: center;
 }
