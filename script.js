@@ -47,19 +47,20 @@ class UserInterface {
     text.innerHTML = `${book.title} by ${book.author}`;
 
     bookContainer.append(text);
-    const removeButtonContainer = document.createElement('td');
+    const removeButtonContainer =
+      document.createElement('td');
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('button-table');
-    removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
+    removeButton.innerHTML =
+      "<i class='fas fa-trash-alt'></i> Remove";
 
     removeButton.onclick = () => {
       UserInterface.removeBook(book, index);
     };
     removeButtonContainer.append(removeButton);
     bookContainer.append(removeButtonContainer);
-
-    return bookContainer;
+    UserInterface.container.appendChild(bookContainer);
   }
 }
 
@@ -68,7 +69,10 @@ class UserInterface {
 // populate the local storage items
 
 books.forEach((book, index) => {
-  const bookContainer = UserInterface.displayBook(book, index);
+  const bookContainer = UserInterface.displayBook(
+    book,
+    index,
+  );
   UserInterface.container.appendChild(bookContainer);
 });
 
