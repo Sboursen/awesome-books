@@ -82,7 +82,6 @@ tr:nth-child(even) {
 .bg {
   position: absolute;
   top: 0;
-  background-image: url('.d/assets/images/bg-image.jpg');
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,23 +102,12 @@ h2 {
 /* ||Book Container------------------------- */
 #container {
   width: 90%;
+  overflow-y: scroll;
   min-height: 150px;
   border: 2px solid var(--shark);
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-
-#container > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px double;
-}
-
-#container > div hr {
-  margin: 0;
-  padding: 0;
 }
 
 /* ||Form------------------------- */
