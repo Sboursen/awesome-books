@@ -1,6 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
-let books = JSON.parse(localStorage.getItem('books')) || [];
+let books;
+
+// |||Events -----------------------------------------
 
 // |||book class
 class Book {
@@ -64,19 +66,22 @@ class UserInterface {
   }
 }
 
-// |||Events -----------------------------------------
-
 // populate the local storage items
+function populateContainer() {
+  if (localStorage.getItem('books')) {
+    books = JSON.parse(localStorage.getItem('books'));
+    books.forEach((book, index) => {
+      UserInterface.displayBook(book, index);
+    });
+  } else {
+    localStorage.setItem('books', '');
+    books = [];
+  }
+}
 
-books.forEach((book, index) => {
-  const bookContainer = UserInterface.displayBook(
-    book,
-    index,
-  );
-  UserInterface.container.appendChild(bookContainer);
-});
+populateContainer();
 
-// add ba book when button is clicked
+// add a book when button is clicked
 UserInterface.addButton.addEventListener(
   'click',
   UserInterface.addBook,
