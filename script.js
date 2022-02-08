@@ -20,7 +20,6 @@ class UserInterface {
   static addButton = document.querySelector('.add-book');
 
   static addBook() {
-    console.log(UserInterface.titleInput);
     const book = new Book(
       UserInterface.titleInput.value,
       UserInterface.authorInput.value,
@@ -74,6 +73,9 @@ UserInterface.addButton.addEventListener(
   'click',
   UserInterface.addBook,
 );
+
+
+
 
 /*
 let books = JSON.parse(localStorage.getItem('books')) || [];
