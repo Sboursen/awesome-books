@@ -1,19 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+:root {
+  --iron: #d3d3d3;
+  --red-orange: #f6362f;
+  --shark: #282931;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  padding: 50px 0;
   width: 100%;
-  background-color: white;
+  height: 100vh;
+  background-color: var(--iron);
   font-weight: 600;
   font-size: 20px;
   font-family: Inter, sans-serif;
-}
-
-a {
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ||Override button default style------------------------- */
@@ -48,3 +57,19 @@ button {
 }
 
 /* ||Override button default style------------------------- */
+.bg {
+  position: absolute;
+  top: 0;
+  background-image: url('.d/assets/images/bg-image.jpg');
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+h1 {
+  color: var(--shark);
+}
