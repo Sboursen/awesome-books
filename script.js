@@ -1,4 +1,50 @@
 /* eslint-disable max-classes-per-file */
+// navbar
+const navbarContainer = document.getElementById(
+  'date-container',
+);
+
+const date = new Date();
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+const dateExtension = (date) => {
+  let extension = '';
+  switch (date.getDate()) {
+    case 3:
+      extension = 'rd';
+      break;
+    case 2:
+      extension = 'nd';
+      break;
+    case 1:
+      extension = 'st';
+      break;
+    default:
+      extension = 'th';
+  }
+  return extension;
+};
+
+const dateString = `${
+  months[date.getMonth()]
+} ${date.getDate()}${dateExtension(date)}
+  ${date.getFullYear()}, ${
+  date.toUTCString().split(' ')[4]
+} `;
+navbarContainer.append(dateString);
 
 let books;
 
@@ -78,3 +124,127 @@ UserInterface.addButton.addEventListener(
   'click',
   UserInterface.addBook,
 );
+
+// ||| Hide and show mobile menu and sections
+
+const MEDIA_BREAKPOINT = 768;
+const mobileMenuButton = document.querySelector(
+  'button.mobile-menu-button',
+);
+const desktopMenuList = document.querySelectorAll(
+  '.desktop-nav .page-navigation button',
+);
+const mobileMenuList = document.querySelectorAll(
+  '.mobile-menu .page-navigation button',
+);
+const mobileMenu = document.querySelector(
+  'div.mobile-menu',
+);
+
+const cancelMobileMenu = document.querySelector(
+  '.mobile-menu .cancel',
+);
+const contactSection = document.getElementById('contact');
+const addNewSection = document.getElementById('add-new');
+const homeSection = document.getElementById('home');
+
+function showMobileMenu(e) {
+  if (
+    e.currentTarget.classList.contains('mobile-menu-button')
+  ) {
+    mobileMenu.style.display = 'flex';
+    mobileMenu.style['z-index'] = 2;
+    document.body.style.overflowY = 'hidden';
+  }
+}
+
+function hideMobileMenu(e) {
+  if (e.currentTarget.classList.contains('cancel')) {
+    mobileMenu.style.display = 'none';
+    mobileMenu.style['z-index'] = -2;
+    document.body.style.overflowY = 'scroll';
+  } else if (
+    e.currentTarget.parentNode.parentNode.classList.contains(
+      'page-navigation',
+    )
+  ) {
+    mobileMenu.style.display = 'none';
+    mobileMenu.style['z-index'] = -2;
+    document.body.style.overflowY = 'scroll';
+
+    // hide and show sections
+    switch (e.currentTarget.className) {
+      case 'mobile-list-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'flex';
+        break;
+      case 'mobile-add-new-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'flex';
+        homeSection.style.display = 'none';
+        break;
+      case 'mobile-contact-link':
+        contactSection.style.display = 'flex';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+        break;
+      default:
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'flex';
+    }
+  }
+}
+
+function hideMobileMenuOnEvent(e) {
+  if (mobileMenu.style.display !== 'none') {
+    if (e.type === 'resize') {
+      if (window.innerWidth > MEDIA_BREAKPOINT) {
+        mobileMenu.style.display = 'none';
+        mobileMenu.style['z-index'] = -2;
+        document.body.style.overflowY = 'scroll';
+      }
+    } else {
+      mobileMenu.style.display = 'none';
+      mobileMenu.style['z-index'] = -2;
+      document.body.style.overflowY = 'scroll';
+    }
+  }
+}
+
+function toggleSection(e) {
+  if (
+    e.currentTarget.parentNode.parentNode.classList.contains(
+      'page-navigation',
+    )
+  ) {
+    switch (e.currentTarget.className) {
+      case 'mobile-list-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'flex';
+        break;
+      case 'mobile-add-new-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'flex';
+        homeSection.style.display = 'none';
+        break;
+      case 'mobile-contact-link':
+        contactSection.style.display = 'flex';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+        break;
+      default:
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+    }
+  }
+}
+
+mobileMenuButton.addEventListener('click', showMobileMenu);
+cancelMobileMenu.addEventListener('click', hideMobileMenu);
+mobileMenuList.forEach((node) => node.addEventListener('click', hideMobileMenu));
+window.addEventListener('resize', hideMobileMenuOnEvent);
+desktopMenuList.forEach((node) => node.addEventListener('click', toggleSection));
