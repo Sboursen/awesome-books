@@ -122,6 +122,61 @@ header {
   gap: 12px;
 }
 
+/* ||| Mobile menu----------------------------------------- */
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 100px;
+  z-index: 2;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(8px);
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.cancel {
+  margin: 12px 24px;
+  padding: 12px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--shark);
+  color: var(--red-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 20%;
+  font-size: 48px;
+  color: var(--shark);
+  text-align: center;
+}
+
+.mobile-menu .page-navigation {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.mobile-menu .page-navigation a {
+  width: 100%;
+}
+
 /* ||title------------------------- */
 
 h1 {
