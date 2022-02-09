@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 :root {
   --iron: #d3d3d3;
@@ -107,12 +107,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--iron);
-  padding-left: calc(
-    0.2 * (100vw - var(--media-breakpoint)) + 12px
-  );
-  padding-right: calc(
-    0.2 * (100vw - var(--media-breakpoint)) + 12px
-  );
+  padding-left:
+    calc(
+      0.2 * (100vw - var(--media-breakpoint)) + 12px
+    );
+  padding-right:
+    calc(
+      0.2 * (100vw - var(--media-breakpoint)) + 12px
+    );
 }
 
 .desktop-nav .logo {
@@ -142,13 +144,6 @@ header {
   border-radius: 12px;
 }
 
-.desktop-nav .page-navigation li:hover {
-  font-size: 16px;
-  font-weight: 800;
-  background-color: white;
-  border: 1px solid var(--red-orange);
-}
-
 /* ||| Mobile menu----------------------------------------- */
 .mobile-menu {
   display: none;
@@ -160,7 +155,7 @@ header {
   justify-content: flex-start;
   gap: 100px;
   z-index: 2;
-  background-color: #ffffffcc;
+  background-color: #fffc;
   backdrop-filter: blur(8px);
 }
 
@@ -214,6 +209,13 @@ header {
 
 .mobile-menu .page-navigation button:hover {
   background-color: var(--iron);
+}
+
+.desktop-nav .page-navigation li:hover {
+  font-size: 16px;
+  font-weight: 800;
+  background-color: white;
+  border: 1px solid var(--red-orange);
 }
 
 /* ||main content------------------------- */
@@ -462,12 +464,14 @@ small {
 
   /* main */
   main {
-    padding-left: calc(
-      0.2 * (100vw - var(--media-breakpoint)) + 12px
-    );
-    padding-right: calc(
-      0.2 * (100vw - var(--media-breakpoint)) + 12px
-    );
+    padding-left:
+      calc(
+        0.2 * (100vw - var(--media-breakpoint)) + 12px
+      );
+    padding-right:
+      calc(
+        0.2 * (100vw - var(--media-breakpoint)) + 12px
+      );
   }
 }
 
