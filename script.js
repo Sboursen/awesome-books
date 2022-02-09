@@ -1,5 +1,37 @@
 /* eslint-disable max-classes-per-file */
+// navbar
+const navbarContainer = document.getElementById('navbar-container');
+const projectTitle = document.createElement('p');
+projectTitle.innerHTML = 'Awesome Books';
+const linksContainer = document.createElement('div');
+const listLink = document.createElement('button');
+const addLink = document.createElement('button');
+const contactLink = document.createElement('button');
+const date = new Date();
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const month = months[date.getMonth()];
+const dateExtension = (date) => {
+  let extension = '';
+  switch (date.getDate()) {
+    case 3:
+      extension = 'rd';
+      break;
+    case 2:
+      extension = 'nd';
+      break;
+    case 1:
+      extension = 'st';
+      break;
+    default:
+      extension = 'th';
+  }
+  return extension;
+};
+
+const dateString = `${month} ${date.getDate()}${dateExtension(date)}  ${date.getFullYear()}, ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getHours() > 12 ? 'pm' : 'am'} `;
+navbarContainer.append(dateString);
 let books;
 
 class Book {
