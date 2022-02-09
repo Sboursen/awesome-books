@@ -127,11 +127,14 @@ UserInterface.addButton.addEventListener(
   UserInterface.addBook,
 );
 
-// ||| Hide and show mobile menu
+// ||| Hide and show mobile menu and sections
 
 const MEDIA_BREAKPOINT = 768;
 const mobileMenuButton = document.querySelector(
   'button.mobile-menu-button',
+);
+const desktopMenuList = document.querySelectorAll(
+  '.desktop-nav .page-navigation button',
 );
 const mobileMenuList = document.querySelectorAll(
   '.mobile-menu .page-navigation button',
@@ -143,6 +146,9 @@ const mobileMenu = document.querySelector(
 const cancelMobileMenu = document.querySelector(
   '.mobile-menu .cancel',
 );
+const contactSection = document.getElementById('contact');
+const addNewSection = document.getElementById('add-new');
+const homeSection = document.getElementById('home');
 
 function showMobileMenu(e) {
   if (
@@ -169,24 +175,18 @@ function hideMobileMenu(e) {
     document.body.style.overflowY = 'scroll';
 
     // hide and show sections
-    const contactSection =
-      document.getElementById('contact');
-    const addNewSection =
-      document.getElementById('add-new');
-    const homeSection = document.getElementById('home');
-    console.log(e.currentTarget.className);
     switch (e.currentTarget.className) {
-      case 'li':
+      case 'mobile-list-link':
         contactSection.style.display = 'none';
         addNewSection.style.display = 'none';
         homeSection.style.display = 'block';
         break;
-      case 'add-n':
+      case 'mobile-add-new-link':
         contactSection.style.display = 'none';
         addNewSection.style.display = 'block';
         homeSection.style.display = 'none';
         break;
-      case 'con':
+      case 'mobile-contact-link':
         contactSection.style.display = 'block';
         addNewSection.style.display = 'none';
         homeSection.style.display = 'none';
@@ -215,9 +215,42 @@ function hideMobileMenuOnEvent(e) {
   }
 }
 
+function toggleSection(e) {
+  if (
+    e.currentTarget.parentNode.parentNode.classList.contains(
+      'page-navigation',
+    )
+  ) {
+    switch (e.currentTarget.className) {
+      case 'mobile-list-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'block';
+        break;
+      case 'mobile-add-new-link':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'block';
+        homeSection.style.display = 'none';
+        break;
+      case 'mobile-contact-link':
+        contactSection.style.display = 'block';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+        break;
+      default:
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+    }
+  }
+}
+
 mobileMenuButton.addEventListener('click', showMobileMenu);
 cancelMobileMenu.addEventListener('click', hideMobileMenu);
 mobileMenuList.forEach((node) =>
   node.addEventListener('click', hideMobileMenu),
 );
 window.addEventListener('resize', hideMobileMenuOnEvent);
+desktopMenuList.forEach((node) =>
+  node.addEventListener('click', toggleSection),
+);

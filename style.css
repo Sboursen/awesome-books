@@ -192,8 +192,11 @@ header {
 }
 
 /* ||main content------------------------- */
-main {s
+main {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
   width: 100%;
   flex: 1 1;
 }
@@ -361,6 +364,16 @@ small {
   #date-container {
     display: block;
   }
+
+  /* main */
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    width: 100%;
+    flex: 1 1;
+  }
 }
 
 /* ||footer/copyright------------------------- */
@@ -375,7 +388,7 @@ small {
 .logo {
   width: fit-content;
 }
-.date{
+.date {
   font-size: 0.95rem;
   text-align: right;
 }
@@ -384,12 +397,16 @@ small {
   font-size: 16px;
   font-weight: normal;
 }
-#home{
-  display:block;
+
+/* sections */
+#home {
+  display: block;
 }
-#add-new{
+
+#add-new {
   display: none;
 }
-#contact{
+
+#contact {
   display: none;
 }
