@@ -56,7 +56,7 @@ class Book {
 }
 
 class UserInterface {
-  static container = document.getElementById('home');
+  static container = document.getElementById('container');
 
   static titleInput = document.querySelector('#title');
 

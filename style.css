@@ -198,10 +198,10 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   padding: 24px;
   width: 100%;
-  flex: 1 1;
+  flex: 2 1;
 }
 
 /* the date style */
@@ -219,31 +219,24 @@ section {
   display: none;
 }
 
+/* ||home section------------------------- */
 #home {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* ||title------------------------- */
-
-h1 {
+h1.section-title {
   color: var(--shark);
-}
-
-h2 {
+  font-size: 24px;
   text-align: center;
-}
-
-.form-title {
-  font-size: 20px;
-  margin: 0;
-  padding: 6px;
 }
 
 /* ||Book Container------------------------- */
 #container {
-  width: 90%;
   overflow-y: scroll;
-  height: 40%;
+  min-height: 300px;
+  max-height: 55vh;
   border: 2px solid var(--shark);
   display: flex;
   flex-direction: column;
@@ -394,12 +387,12 @@ small {
 
   /* main */
   main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 24px;
-    width: 100%;
-    flex: 1 1;
+    padding-left: calc(
+      0.2 * (100vw - var(--media-breakpoint)) + 12px
+    );
+    padding-right: calc(
+      0.2 * (100vw - var(--media-breakpoint)) + 12px
+    );
   }
 }
 
