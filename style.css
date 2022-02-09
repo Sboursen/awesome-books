@@ -18,7 +18,7 @@ html {
 
 body {
   margin: 0;
-  padding: 20px 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
   background-color: var(--iron);
@@ -76,25 +76,28 @@ button {
 /* ||mobile nav-bar------------------------- */
 header {
   width: 100%;
-  height: 48px;
   padding: 12px 24px;
 }
 
 .mobile-nav {
   width: calc(100% - 48px);
-  height: 48px;
+  height: 100%;
   padding: 12px 24px;
   background-color: white;
   background-color: transparent;
 }
 
-.mobile-nav button {
+.mobile-menu-button {
   height: 100%;
   padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: var(--shark);
+}
+
+.mobile-menu-button:hover {
+  background-color: var(--iron);
 }
 
 .desktop-nav {
