@@ -1,18 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
   --iron: #d3d3d3;
   --red-orange: #f6362f;
   --shark: #282931;
+  --media-breakpoint: 768px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  padding: 20px 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
   background-color: var(--iron);
@@ -25,7 +31,24 @@ body {
   justify-content: space-between;
 }
 
-/* ||Override button default style------------------------- */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  font-weight: normal;
+  color: var(--shark);
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ||Override default style------------------------- */
 
 button {
   background: none;
@@ -37,66 +60,7 @@ button {
   outline: inherit;
 }
 
-td {
-  text-align: center;
-}
-
-tr {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.remove-button {
-  background-color: white;
-  padding: 6px;
-  border: 0.5px solid var(--red-orange);
-  color: var(--shark);
-  border-radius: 4px;
-  width: fit-content;
-}
-
-.remove-button:hover {
-  border: 0.5px solid transparent;
-  background-color: var(--red-orange);
-  color: white;
-  cursor: pointer;
-}
-
-.remove-button:active {
-  border: 0.5px solid #172b4d;
-  background: var(--red-orange);
-  cursor: pointer;
-}
-
-.add-button {
-  background-color: hsl(160deg 100% 30%);
-  padding: 12px;
-  border: 0.5px solid transparent;
-  color: white;
-  border-radius: 4px;
-  width: fit-content;
-}
-
-.add-button:hover {
-  border: 0.5px solid transparent;
-  box-shadow: 0 8px 16px 0 #36b37f3d;
-  cursor: pointer;
-}
-
-.add-button:active {
-  border: 0.5px solid #172b4d;
-  background: hsl(160deg 100% 36%);
-  cursor: pointer;
-}
-
-/* ||Override button default style------------------------- */
+/* ||background------------------------- */
 .bg {
   position: absolute;
   top: 0;
@@ -104,10 +68,137 @@ tr:nth-child(even) {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   z-index: -1;
 }
+
+/* ||mobile nav-bar------------------------- */
+header {
+  width: 100%;
+  padding: 12px 24px;
+}
+
+.mobile-nav {
+  width: calc(100% - 48px);
+  height: 100%;
+  padding: 12px 24px;
+  background-color: white;
+  background-color: transparent;
+}
+
+.mobile-menu-button {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--shark);
+}
+
+.mobile-menu-button:hover {
+  background-color: var(--iron);
+}
+
+.desktop-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: calc(
+    0.2 * (100vw - var(--media-breakpoint)) + 12px
+  );
+  padding-right: calc(
+    0.2 * (100vw - var(--media-breakpoint)) + 12px
+  );
+}
+
+.desktop-nav .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--shark);
+}
+
+.page-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ||| Mobile menu----------------------------------------- */
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 100px;
+  z-index: 2;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(8px);
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.cancel {
+  margin: 12px 24px;
+  padding: 12px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--shark);
+  color: var(--red-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 20%;
+  font-size: 48px;
+  color: var(--shark);
+  text-align: center;
+}
+
+.mobile-menu .page-navigation {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.mobile-menu .page-navigation li {
+  width: calc(100% - 24px);
+}
+
+.mobile-menu .page-navigation a {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 20px;
+}
+
+.mobile-menu .page-navigation a:hover {
+  background-color: var(--iron);
+}
+
+/* ||main content------------------------- */
+main {s
+  display: flex;
+  width: 100%;
+  flex: 1 1;
+}
+
+/* ||title------------------------- */
 
 h1 {
   color: var(--shark);
@@ -132,6 +223,22 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+td {
+  text-align: center;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 /* ||Form------------------------- */
@@ -178,4 +285,91 @@ small {
 
 .add-book {
   align-self: center;
+}
+
+/* ||Buttons------------------------- */
+.remove-button {
+  background-color: white;
+  padding: 6px;
+  border: 0.5px solid var(--red-orange);
+  color: var(--shark);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.remove-button:hover {
+  border: 0.5px solid transparent;
+  background-color: var(--red-orange);
+  color: white;
+  cursor: pointer;
+}
+
+.remove-button:active {
+  border: 0.5px solid #172b4d;
+  background: var(--red-orange);
+  cursor: pointer;
+}
+
+.add-button {
+  background-color: hsl(160deg 100% 30%);
+  padding: 12px;
+  border: 0.5px solid transparent;
+  color: white;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.add-button:hover {
+  border: 0.5px solid transparent;
+  box-shadow: 0 8px 16px 0 #36b37f3d;
+  cursor: pointer;
+}
+
+.add-button:active {
+  border: 0.5px solid #172b4d;
+  background: hsl(160deg 100% 36%);
+  cursor: pointer;
+}
+
+/* |||@media mobile only-------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* |||@media desktop only -------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* ||footer/copyright------------------------- */
+.copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.logo {
+  width: fit-content;
+}
+
+.copyright .logo-text {
+  width: 60%;
+  font-size: 16px;
+  font-weight: normal;
 }
