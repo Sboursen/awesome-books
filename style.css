@@ -1,3 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --iron: #d3d3d3;
+  --red-orange: #f6362f;
+  --shark: #282931;
+}
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--iron);
+  font-weight: 600;
+  font-size: 20px;
+  font-family: Inter, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ||Override button default style------------------------- */
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+td {
+  text-align: center;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.remove-button {
+  background-color: white;
+  padding: 6px;
+  border: 0.5px solid var(--red-orange);
+  color: var(--shark);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.remove-button:hover {
+  border: 0.5px solid transparent;
+  background-color: var(--red-orange);
+  color: white;
+  cursor: pointer;
+}
+
+.remove-button:active {
+  border: 0.5px solid #172b4d;
+  background: var(--red-orange);
+  cursor: pointer;
+}
+
+.add-button {
+  background-color: hsl(160deg 100% 30%);
+  padding: 12px;
+  border: 0.5px solid transparent;
+  color: white;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.add-button:hover {
+  border: 0.5px solid transparent;
+  box-shadow: 0 8px 16px 0 #36b37f3d;
+  cursor: pointer;
+}
+
+.add-button:active {
+  border: 0.5px solid #172b4d;
+  background: hsl(160deg 100% 36%);
+  cursor: pointer;
+}
+
+/* ||Override button default style------------------------- */
+.bg {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+h1 {
+  color: var(--shark);
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-title {
+  font-size: 20px;
+  margin: 0;
+  padding: 6px;
+}
+
+/* ||Book Container------------------------- */
+#container {
+  width: 90%;
+  overflow-y: scroll;
+  height: 40%;
+  border: 2px solid var(--shark);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ||Form------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 10%;
+  border: 2px solid var(--shark);
+  padding: 12px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: smaller;
+  margin: 5px;
+}
+
+input {
+  height: 30px;
+  padding: 0 5px;
+}
+
+small {
+  width: 50%;
+  align-self: flex-end;
+  text-align: center;
+  font-size: smaller;
+  min-height: 12px;
+}
+
+.add-book {
+  align-self: center;
 }
