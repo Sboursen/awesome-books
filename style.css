@@ -127,6 +127,7 @@ header {
 
 /* ||| Mobile menu----------------------------------------- */
 .mobile-menu {
+  display: none;
   position: absolute;
   top: 0;
   min-height: 100vh;
@@ -180,14 +181,14 @@ header {
   width: calc(100% - 24px);
 }
 
-.mobile-menu .page-navigation a {
+.mobile-menu .page-navigation button {
   display: block;
   width: 100%;
   padding: 12px 24px;
   border-radius: 20px;
 }
 
-.mobile-menu .page-navigation a:hover {
+.mobile-menu .page-navigation button:hover {
   background-color: var(--iron);
 }
 
@@ -337,6 +338,10 @@ small {
   .desktop-nav {
     display: none;
   }
+
+  #date-container {
+    display: none;
+  }
 }
 
 /* |||@media desktop only -------------------------------------- */
@@ -352,6 +357,10 @@ small {
 
   .mobile-menu {
     display: none;
+  }
+
+  #date-container {
+    display: block;
   }
 }
 
