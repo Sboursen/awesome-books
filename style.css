@@ -4,10 +4,16 @@
   --iron: #d3d3d3;
   --red-orange: #f6362f;
   --shark: #282931;
+  --media-breakpoint: 768px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -25,6 +31,23 @@ body {
   justify-content: space-between;
 }
 
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  font-weight: normal;
+  color: var(--shark);
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* ||Override default style------------------------- */
 
 button {
@@ -37,7 +60,7 @@ button {
   outline: inherit;
 }
 
-/* ||title section------------------------- */
+/* ||background------------------------- */
 .bg {
   position: absolute;
   top: 0;
@@ -45,10 +68,61 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   z-index: -1;
 }
+
+/* ||mobile nav-bar------------------------- */
+header {
+  width: 100%;
+  height: 48px;
+  padding: 12px 24px;
+}
+
+.mobile-nav {
+  width: calc(100% - 48px);
+  height: 48px;
+  padding: 12px 24px;
+  background-color: white;
+  background-color: transparent;
+}
+
+.mobile-nav button {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--shark);
+}
+
+.desktop-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: calc(
+    0.2 * (100vw - var(--media-breakpoint)) + 12px
+  );
+  padding-right: calc(
+    0.2 * (100vw - var(--media-breakpoint)) + 12px
+  );
+}
+
+.desktop-nav .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--shark);
+}
+
+.page-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ||title------------------------- */
 
 h1 {
   color: var(--shark);
@@ -179,4 +253,28 @@ small {
   border: 0.5px solid #172b4d;
   background: hsl(160deg 100% 36%);
   cursor: pointer;
+}
+
+/* |||@media mobile only-------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* |||@media desktop only -------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
 }
