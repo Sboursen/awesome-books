@@ -121,11 +121,32 @@ header {
   color: var(--shark);
 }
 
+.desktop-nav .logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--shark);
+}
+
 .page-navigation {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
+}
+
+.desktop-nav .page-navigation li {
+  font-size: 16px;
+  font-weight: 800;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+
+.desktop-nav .page-navigation li:hover {
+  font-size: 16px;
+  font-weight: 800;
+  background-color: white;
+  border: 1px solid var(--red-orange);
 }
 
 /* ||| Mobile menu----------------------------------------- */
@@ -166,7 +187,8 @@ header {
 
 .title {
   margin-top: 20%;
-  font-size: 48px;
+  font-size: 32px;
+  font-weight: 700;
   color: var(--shark);
   text-align: center;
 }
@@ -208,7 +230,8 @@ main {
 
 .date {
   padding: 12px;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 700;
   font-family: var(--inter);
   text-align: right;
   align-self: flex-end;
@@ -259,10 +282,18 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+/* ||home section------------------------- */
+#add-new {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
 /* ||Form------------------------- */
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
   margin: 0 10%;
   border: 2px solid var(--shark);
@@ -272,19 +303,21 @@ form {
 .input-container {
   display: flex;
   flex-direction: column;
+  width: fit-content;
   gap: 2px;
   justify-content: center;
+  align-items: center;
 }
 
 label {
   display: flex;
-  width: 300px;
+  width: 240px;
   justify-content: space-between;
   align-items: center;
 }
 
 h3 {
-  font-size: smaller;
+  font-size: 16px;
   margin: 5px;
 }
 
@@ -303,6 +336,48 @@ small {
 
 .add-book {
   align-self: center;
+}
+
+/* ||contact section------------------------- */
+#contact {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  gap: 40px;
+}
+
+.contact-info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.contact-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 300px;
+  border: 3px solid var(--red-orange);
+  border-radius: 40px;
+  padding: 24px;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 24px;
+  align-items: center;
+  font-size: 24px;
 }
 
 /* ||Buttons------------------------- */
@@ -329,7 +404,7 @@ small {
 }
 
 .add-button {
-  background-color: hsl(160deg 100% 30%);
+  background-color: var(--shark);
   padding: 12px;
   border: 0.5px solid transparent;
   color: white;
@@ -339,13 +414,13 @@ small {
 
 .add-button:hover {
   border: 0.5px solid transparent;
-  box-shadow: 0 8px 16px 0 #36b37f3d;
+  box-shadow: 0 8px 16px 0 var(--shark);
   cursor: pointer;
 }
 
 .add-button:active {
   border: 0.5px solid #172b4d;
-  background: hsl(160deg 100% 36%);
+  background: var(--shark);
   cursor: pointer;
 }
 

@@ -27,10 +27,9 @@
       </button>
     </div>
 
-    <a class="title" href="#">
-      <h3 class="logo-text"> Awesome books
-      </h3>
-    </a>
+    <p class="title">Awesome books
+
+    </p>
 
     <ul class="page-navigation">
       <li>
@@ -60,13 +59,13 @@
     -->
 
     <nav class="desktop-nav">
-      <a class="logo" href="#">
-        <h3 class="logo-text"> <button
-            onclick="{getElementById('contact').style.display = 'none'; getElementById('add-new').style.display = 'none';  getElementById('home').style.display = 'block'}"
-            type="button" name="button">Awesome
-            books</button>
-        </h3>
-      </a>
+      <h3 class="logo-text"> <button
+          onclick="{getElementById('contact').style.display = 'none'; getElementById('add-new').style.display = 'none';  getElementById('home').style.display = 'block'}"
+          type="button" name="button"><i
+            class="fas fa-books"></i> Awesome
+          books</button>
+      </h3>
+
 
       <ul class="page-navigation">
         <li>
@@ -104,11 +103,11 @@
     </section>
 
     <section id='add-new'>
-      <h1 section-title><i class="fad fa-book-heart"></i>
+      <h1 class="section-title">
+        <i class="fas fa-book-medical"></i>
         <span>Add a new book</span>
       </h1>
       <form>
-        <h2 class="form-title"> Add a new book </h2>
         <div class="input-container">
           <label for="title">
             <h3 class="label">Title: </h3>
@@ -126,46 +125,52 @@
           <small class="author-alert"></small>
         </div>
         <button type="button" name="button"
-          class="add-book add-button">Add
+          class="add-book add-button">Add new book
         </button>
       </form>
     </section>
 
 
     <section id='contact'>
-      <h1><i class="fad fa-book-heart"></i>
-        <span>All awesome books</span>
+      <h1 class="section-title"><i
+          class="fas fa-address-card"></i>
+        <span> Contact Us</span>
       </h1>
       <div class="contact-info">
-        <h2>Authors</h2>
-        <div class="authors">
-          <div>
-            <h3><i class="fas fa-user"></i> Soufiane Boursen
-            </h3>
-            <ul class="social">
-              <li><a href=""><i
-                    class="fab fa-github"></i></a></li>
-              <li><a href=""><i
-                    class="fab fa-twitter"></i></a></li>
-              <li><a href=""><i
-                    class="fab fa-linkedin-in"></i></a></li>
-            </ul>
-          </div>
+        <div>
+          <h3><i class="fas fa-user"></i> Soufiane Boursen
+          </h3>
+          <ul class="social">
+            <li><a href="https://github.com/Sboursen"><i
+                  class="fab fa-github"></i></a>
+            </li>
+            <li><a
+                href="https://twitter.com/sboursen_dev"><i
+                  class="fab fa-twitter"></i></a></li>
+            <li><a
+                href="https://linkedin.com/in/sboursen"><i
+                  class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
 
 
-          <div>
-            <h3><i class="fas fa-user"></i> Soufiane Boursen
-            </h3>
-            <ul class="social">
-              <li><a href=""><i
-                    class="fab fa-github"></i></a></li>
-              <li><a href=""><i
-                    class="fab fa-twitter"></i></a></li>
-              <li><a href=""><i
-                    class="fab fa-linkedin-in"></i></a>
-              </li>
-            </ul>
-          </div>
+        <div>
+          <h3><i class="fas fa-user"></i> Amira Abouhadid
+          </h3>
+          <ul class="social">
+            <li><a
+                href="https://github.com/amiraabouhadid"><i
+                  class="fab fa-github"></i></a>
+            </li>
+            <li><a
+                href="https://twitter.com/AbouhadidAmira"><i
+                  class="fab fa-twitter"></i></a></li>
+            <li><a
+                href="https://www.linkedin.com/in/amira-abouhadid/"><i
+                  class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -186,7 +191,8 @@
     <p class="logo-text">
       Awesome Books. Some Rights Reserved.
       This is registred under the MIT license. for more
-      info, please <a href="#">See
+      info, please <a
+        href="https://github.com/Sboursen/awesome-books">See
         here</a>
     </p>
   </footer>
