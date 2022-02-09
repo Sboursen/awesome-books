@@ -1,9 +1,24 @@
 /* eslint-disable max-classes-per-file */
 // navbar
-const navbarContainer = document.getElementById('date-container');
+const navbarContainer = document.getElementById(
+  'date-container',
+);
 
 const date = new Date();
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 const dateExtension = (date) => {
   let extension = '';
@@ -23,8 +38,12 @@ const dateExtension = (date) => {
   return extension;
 };
 
-const dateString = `${months[date.getMonth()]} ${date.getDate()}${dateExtension(date)}
-  ${date.getFullYear()}, ${date.toUTCString().split(' ')[4]} `;
+const dateString = `${
+  months[date.getMonth()]
+} ${date.getDate()}${dateExtension(date)}
+  ${date.getFullYear()}, ${
+  date.toUTCString().split(' ')[4]
+} `;
 navbarContainer.append(dateString);
 
 let books;
@@ -72,11 +91,13 @@ class UserInterface {
     text.innerHTML = `"${book.title}" by ${book.author}`;
 
     bookContainer.append(text);
-    const removeButtonContainer = document.createElement('td');
+    const removeButtonContainer =
+      document.createElement('td');
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('remove-button');
-    removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
+    removeButton.innerHTML =
+      "<i class='fas fa-trash-alt'></i> Remove";
 
     removeButton.onclick = () => {
       UserInterface.removeBook(book, index);
@@ -113,7 +134,7 @@ const mobileMenuButton = document.querySelector(
   'button.mobile-menu-button',
 );
 const mobileMenuList = document.querySelectorAll(
-  '.mobile-menu .page-navigation > li',
+  '.mobile-menu .page-navigation button',
 );
 const mobileMenu = document.querySelector(
   'div.mobile-menu',
@@ -134,15 +155,47 @@ function showMobileMenu(e) {
 }
 
 function hideMobileMenu(e) {
-  if (
-    e.currentTarget.classList.contains('cancel')
-    || e.currentTarget.parentNode.classList.contains(
-      'mobile-list',
+  if (e.currentTarget.classList.contains('cancel')) {
+    mobileMenu.style.display = 'none';
+    mobileMenu.style['z-index'] = -2;
+    document.body.style.overflowY = 'scroll';
+  } else if (
+    e.currentTarget.parentNode.parentNode.classList.contains(
+      'page-navigation',
     )
   ) {
     mobileMenu.style.display = 'none';
     mobileMenu.style['z-index'] = -2;
     document.body.style.overflowY = 'scroll';
+
+    // hide and show sections
+    const contactSection =
+      document.getElementById('contact');
+    const addNewSection =
+      document.getElementById('add-new');
+    const homeSection = document.getElementById('home');
+    console.log(e.currentTarget.className);
+    switch (e.currentTarget.className) {
+      case 'li':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'block';
+        break;
+      case 'add-n':
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'block';
+        homeSection.style.display = 'none';
+        break;
+      case 'con':
+        contactSection.style.display = 'block';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+        break;
+      default:
+        contactSection.style.display = 'none';
+        addNewSection.style.display = 'none';
+        homeSection.style.display = 'none';
+    }
   }
 }
 
@@ -164,5 +217,7 @@ function hideMobileMenuOnEvent(e) {
 
 mobileMenuButton.addEventListener('click', showMobileMenu);
 cancelMobileMenu.addEventListener('click', hideMobileMenu);
-mobileMenuList.forEach((node) => node.addEventListener('click', hideMobileMenu));
+mobileMenuList.forEach((node) =>
+  node.addEventListener('click', hideMobileMenu),
+);
 window.addEventListener('resize', hideMobileMenuOnEvent);
