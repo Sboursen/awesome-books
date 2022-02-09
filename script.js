@@ -1,8 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
-let books = JSON.parse(localStorage.getItem('books')) || [];
+let books;
 
-// |||book class
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -10,7 +9,6 @@ class Book {
   }
 }
 
-// |||user interface interactions
 class UserInterface {
   static container = document.getElementById('container');
 
@@ -44,13 +42,13 @@ class UserInterface {
     const bookContainer = document.createElement('tr');
     bookContainer.id = index;
     const text = document.createElement('td');
-    text.innerHTML = `${book.title} by ${book.author}`;
+    text.innerHTML = `"${book.title}" by ${book.author}`;
 
     bookContainer.append(text);
     const removeButtonContainer = document.createElement('td');
 
     const removeButton = document.createElement('button');
-    removeButton.classList.add('button-table');
+    removeButton.classList.add('remove-button');
     removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
 
     removeButton.onclick = () => {
@@ -58,78 +56,25 @@ class UserInterface {
     };
     removeButtonContainer.append(removeButton);
     bookContainer.append(removeButtonContainer);
-
-    return bookContainer;
+    UserInterface.container.appendChild(bookContainer);
   }
 }
 
-// |||Events -----------------------------------------
+function populateContainer() {
+  if (localStorage.getItem('books')) {
+    books = JSON.parse(localStorage.getItem('books'));
+    books.forEach((book, index) => {
+      UserInterface.displayBook(book, index);
+    });
+  } else {
+    localStorage.setItem('books', '');
+    books = [];
+  }
+}
 
-// populate the local storage items
+populateContainer();
 
-books.forEach((book, index) => {
-  const bookContainer = UserInterface.displayBook(book, index);
-  UserInterface.container.appendChild(bookContainer);
-});
-
-// add ba book when button is clicked
 UserInterface.addButton.addEventListener(
   'click',
   UserInterface.addBook,
 );
-
-// |||Contact form validation
-
-/*
-let books = JSON.parse(localStorage.getItem('books')) || [];
-const titleInput = document.querySelector('#title');
-const authorInput = document.querySelector('#author');
-const addButton = document.querySelector('.add-book');
-const container = document.getElementById('container');
-
-function removeBook(book, index) {
-  const bookContainer = document.getElementById(index);
-  books = books.filter((el) => el !== book);
-  localStorage.setItem('books', JSON.stringify(books));
-  container.removeChild(bookContainer);
-}
-
-function displayBook(book, index) {
-  const bookContainer = document.createElement('div');
-  bookContainer.id = index;
-
-  const text = document.createElement('p');
-  text.innerHTML = `Title: ${book.title}<br>`
-    + `Author: ${book.author}<br>`;
-  bookContainer.append(text);
-
-  const removeButton = document.createElement('button');
-  removeButton.innerHTML = 'Remove';
-  removeButton.onclick = () => {
-    removeBook(book, index);
-  };
-  bookContainer.append(removeButton);
-  const breakline = document.createElement('hr');
-  bookContainer.append(breakline);
-  container.append(bookContainer);
-}
-
-books.forEach((book, index) => {
-  displayBook(book, index);
-});
-
-function addBook() {
-  const book = {
-    title: titleInput.value,
-    author: authorInput.value,
-  };
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-
-  document.querySelector('#author').value = '';
-  document.querySelector('#title').value = '';
-  displayBook(book, books.length - 1);
-}
-
-addButton.addEventListener('click', addBook);
-*/
