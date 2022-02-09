@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
   --iron: #d3d3d3;
   --red-orange: #f6362f;
   --shark: #282931;
   --media-breakpoint: 768px;
+  --lato: lato, sans-serif;
+  --inter: inter, sans-serif;
 }
 
 * {
@@ -22,9 +25,7 @@ body {
   width: 100%;
   height: 100vh;
   background-color: var(--iron);
-  font-weight: 600;
-  font-size: 20px;
-  font-family: Inter, sans-serif;
+  font-family: var(--lato);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,6 +78,7 @@ button {
 header {
   width: 100%;
   padding: 12px 24px;
+  background-color: var(--iron);
 }
 
 .mobile-nav {
@@ -104,6 +106,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: var(--iron);
   padding-left: calc(
     0.2 * (100vw - var(--media-breakpoint)) + 12px
   );
@@ -199,6 +202,25 @@ main {
   padding: 24px;
   width: 100%;
   flex: 1 1;
+}
+
+/* the date style */
+
+.date {
+  padding: 12px;
+  font-size: 14px;
+  font-family: var(--inter);
+  text-align: right;
+  align-self: flex-end;
+  margin-right: 48px;
+}
+
+section {
+  display: none;
+}
+
+#home {
+  display: block;
 }
 
 /* ||title------------------------- */
@@ -344,6 +366,11 @@ small {
   #date-container {
     display: none;
   }
+
+  header {
+    background-color: var(--iron);
+    background-color: transparent;
+  }
 }
 
 /* |||@media desktop only -------------------------------------- */
@@ -378,35 +405,23 @@ small {
 
 /* ||footer/copyright------------------------- */
 .copyright {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
+  background-color: var(--iron);
 }
 
-.logo {
+.copyright .logo {
   width: fit-content;
+  font-size: 48px;
+  font-weight: 600;
 }
-.date {
-  font-size: 0.95rem;
-  text-align: right;
-}
+
 .copyright .logo-text {
   width: 60%;
   font-size: 16px;
-  font-weight: normal;
-}
-
-/* sections */
-#home {
-  display: block;
-}
-
-#add-new {
-  display: none;
-}
-
-#contact {
-  display: none;
+  font-family: var(--inter);
 }

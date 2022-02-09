@@ -179,22 +179,22 @@ function hideMobileMenu(e) {
       case 'mobile-list-link':
         contactSection.style.display = 'none';
         addNewSection.style.display = 'none';
-        homeSection.style.display = 'block';
+        homeSection.style.display = 'flex';
         break;
       case 'mobile-add-new-link':
         contactSection.style.display = 'none';
-        addNewSection.style.display = 'block';
+        addNewSection.style.display = 'flex';
         homeSection.style.display = 'none';
         break;
       case 'mobile-contact-link':
-        contactSection.style.display = 'block';
+        contactSection.style.display = 'flex';
         addNewSection.style.display = 'none';
         homeSection.style.display = 'none';
         break;
       default:
         contactSection.style.display = 'none';
         addNewSection.style.display = 'none';
-        homeSection.style.display = 'none';
+        homeSection.style.display = 'flex';
     }
   }
 }
@@ -225,15 +225,15 @@ function toggleSection(e) {
       case 'mobile-list-link':
         contactSection.style.display = 'none';
         addNewSection.style.display = 'none';
-        homeSection.style.display = 'block';
+        homeSection.style.display = 'flex';
         break;
       case 'mobile-add-new-link':
         contactSection.style.display = 'none';
-        addNewSection.style.display = 'block';
+        addNewSection.style.display = 'flex';
         homeSection.style.display = 'none';
         break;
       case 'mobile-contact-link':
-        contactSection.style.display = 'block';
+        contactSection.style.display = 'flex';
         addNewSection.style.display = 'none';
         homeSection.style.display = 'none';
         break;
