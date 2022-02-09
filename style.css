@@ -367,9 +367,21 @@ small {
 .logo {
   width: fit-content;
 }
-
+.date{
+  font-size: 0.95rem;
+  text-align: right;
+}
 .copyright .logo-text {
   width: 60%;
   font-size: 16px;
   font-weight: normal;
+}
+#home{
+  display:block;
+}
+#add-new{
+  display: none;
+}
+#contact{
+  display: none;
 }

@@ -1,17 +1,10 @@
 /* eslint-disable max-classes-per-file */
 // navbar
-const navbarContainer = document.getElementById('navbar-container');
-const projectTitle = document.createElement('p');
-projectTitle.innerHTML = 'Awesome Books';
-const linksContainer = document.createElement('div');
-const listLink = document.createElement('button');
-const addLink = document.createElement('button');
-const contactLink = document.createElement('button');
+const navbarContainer = document.getElementById('date-container');
 
-//
 const date = new Date();
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const month = months[date.getMonth()];
+
 const dateExtension = (date) => {
   let extension = '';
   switch (date.getDate()) {
@@ -30,8 +23,10 @@ const dateExtension = (date) => {
   return extension;
 };
 
-const dateString = `${month} ${date.getDate()}${dateExtension(date)}  ${date.getFullYear()}, ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getHours() > 12 ? 'pm' : 'am'} `;
+const dateString = `${months[date.getMonth()]} ${date.getDate()}${dateExtension(date)}
+  ${date.getFullYear()}, ${date.toUTCString().split(' ')[4]} `;
 navbarContainer.append(dateString);
+
 let books;
 
 class Book {
@@ -42,7 +37,7 @@ class Book {
 }
 
 class UserInterface {
-  static container = document.getElementById('container');
+  static container = document.getElementById('home');
 
   static titleInput = document.querySelector('#title');
 
@@ -77,13 +72,11 @@ class UserInterface {
     text.innerHTML = `"${book.title}" by ${book.author}`;
 
     bookContainer.append(text);
-    const removeButtonContainer =
-      document.createElement('td');
+    const removeButtonContainer = document.createElement('td');
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('remove-button');
-    removeButton.innerHTML =
-      "<i class='fas fa-trash-alt'></i> Remove";
+    removeButton.innerHTML = "<i class='fas fa-trash-alt'></i> Remove";
 
     removeButton.onclick = () => {
       UserInterface.removeBook(book, index);
@@ -142,8 +135,8 @@ function showMobileMenu(e) {
 
 function hideMobileMenu(e) {
   if (
-    e.currentTarget.classList.contains('cancel') ||
-    e.currentTarget.parentNode.classList.contains(
+    e.currentTarget.classList.contains('cancel')
+    || e.currentTarget.parentNode.classList.contains(
       'mobile-list',
     )
   ) {
@@ -171,7 +164,5 @@ function hideMobileMenuOnEvent(e) {
 
 mobileMenuButton.addEventListener('click', showMobileMenu);
 cancelMobileMenu.addEventListener('click', hideMobileMenu);
-mobileMenuList.forEach((node) =>
-  node.addEventListener('click', hideMobileMenu),
-);
+mobileMenuList.forEach((node) => node.addEventListener('click', hideMobileMenu));
 window.addEventListener('resize', hideMobileMenuOnEvent);
