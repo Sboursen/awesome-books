@@ -7,10 +7,10 @@ const linksContainer = document.createElement('div');
 const listLink = document.createElement('button');
 const addLink = document.createElement('button');
 const contactLink = document.createElement('button');
+
+//
 const date = new Date();
-
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
 const month = months[date.getMonth()];
 const dateExtension = (date) => {
   let extension = '';
