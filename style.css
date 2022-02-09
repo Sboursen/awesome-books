@@ -173,8 +173,19 @@ header {
   font-weight: 600;
 }
 
+.mobile-menu .page-navigation li {
+  width: calc(100% - 24px);
+}
+
 .mobile-menu .page-navigation a {
+  display: block;
   width: 100%;
+  padding: 12px 24px;
+  border-radius: 20px;
+}
+
+.mobile-menu .page-navigation a:hover {
+  background-color: var(--iron);
 }
 
 /* ||title------------------------- */
