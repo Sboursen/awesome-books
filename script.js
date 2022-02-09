@@ -2,9 +2,6 @@
 
 let books;
 
-// |||Events -----------------------------------------
-
-// |||book class
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -12,7 +9,6 @@ class Book {
   }
 }
 
-// |||user interface interactions
 class UserInterface {
   static container = document.getElementById('container');
 
@@ -64,7 +60,6 @@ class UserInterface {
   }
 }
 
-// populate the local storage items
 function populateContainer() {
   if (localStorage.getItem('books')) {
     books = JSON.parse(localStorage.getItem('books'));
@@ -79,7 +74,6 @@ function populateContainer() {
 
 populateContainer();
 
-// add a book when button is clicked
 UserInterface.addButton.addEventListener(
   'click',
   UserInterface.addBook,
