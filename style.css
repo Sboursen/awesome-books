@@ -191,6 +191,13 @@ header {
   background-color: var(--iron);
 }
 
+/* ||main content------------------------- */
+main {s
+  display: flex;
+  width: 100%;
+  flex: 1 1;
+}
+
 /* ||title------------------------- */
 
 h1 {
@@ -346,4 +353,23 @@ small {
   .mobile-menu {
     display: none;
   }
+}
+
+/* ||footer/copyright------------------------- */
+.copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.logo {
+  width: fit-content;
+}
+
+.copyright .logo-text {
+  width: 60%;
+  font-size: 16px;
+  font-weight: normal;
 }
