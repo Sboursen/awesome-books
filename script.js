@@ -77,9 +77,18 @@ class UserInterface {
     const addedAlert = document.getElementById('form-validation');
     addedAlert.innerHTML = 'Book added successfully!';
     addedAlert.style.color = 'green';
-    UserInterface.titleInput.value = '';
-    UserInterface.authorInput.value = '';
+    setTimeout(() => {
+      UserInterface.titleInput.value = '';
+      UserInterface.authorInput.value = '';
+
+      addedAlert.innerHTML = '';
+    }, 1000);
+
     UserInterface.displayBook(book, books.length - 1);
+  }
+
+  static clearInput() {
+
   }
 
   static removeBook(book, index) {
