@@ -71,7 +71,9 @@ class UserInterface {
     );
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
-
+    const addedAlert = document.getElementById('form-validation');
+    addedAlert.innerHTML = 'Book added successfully!';
+    addedAlert.style.color = 'green';
     UserInterface.titleInput.value = '';
     UserInterface.authorInput.value = '';
     UserInterface.displayBook(book, books.length - 1);
