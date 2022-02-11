@@ -1,51 +1,54 @@
 /* eslint-disable max-classes-per-file */
 // navbar
-const navbarContainer = document.getElementById(
-  'date-container',
-);
 
-const date = new Date();
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+function addDate() {
+  const navbarContainer = document.getElementById(
+    'date-container',
+  );
+  navbarContainer.innerHTML = '';
+  const date = new Date();
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
-const dateExtension = (date) => {
-  let extension = '';
-  switch (date.getDate()) {
-    case 3:
-      extension = 'rd';
-      break;
-    case 2:
-      extension = 'nd';
-      break;
-    case 1:
-      extension = 'st';
-      break;
-    default:
-      extension = 'th';
-  }
-  return extension;
-};
+  const dateExtension = (date) => {
+    let extension = '';
+    switch (date.getDate()) {
+      case 3:
+        extension = 'rd';
+        break;
+      case 2:
+        extension = 'nd';
+        break;
+      case 1:
+        extension = 'st';
+        break;
+      default:
+        extension = 'th';
+    }
+    return extension;
+  };
 
-const dateString = `${
-  months[date.getMonth()]
-} ${date.getDate()}${dateExtension(date)}
-  ${date.getFullYear()}, ${
+  const dateString = `${
+    months[date.getMonth()]
+  } ${date.getDate()}${dateExtension(date)}
+    ${date.getFullYear()}, ${
   date.toUTCString().split(' ')[4]
 } `;
-navbarContainer.append(dateString);
-
+  navbarContainer.append(dateString);
+}
+window.setInterval(addDate, 1000);
 let books;
 
 class Book {
@@ -69,12 +72,38 @@ class UserInterface {
       UserInterface.titleInput.value,
       UserInterface.authorInput.value,
     );
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
+    if (
+      UserInterface.IsValid(book)
+      && !UserInterface.IsDuplicate(book)
+    ) {
+      books.push(book);
+      localStorage.setItem('books', JSON.stringify(books));
+      const addedAlert = document.getElementById(
+        'form-validation',
+      );
+      addedAlert.innerHTML = 'Book added successfully!';
+      addedAlert.style.color = 'green';
+      setTimeout(() => {
+        UserInterface.titleInput.value = '';
+        UserInterface.authorInput.value = '';
 
-    UserInterface.titleInput.value = '';
-    UserInterface.authorInput.value = '';
-    UserInterface.displayBook(book, books.length - 1);
+        addedAlert.innerHTML = '';
+      }, 1000);
+
+      UserInterface.displayBook(book, books.length - 1);
+    } else {
+      const addedAlert = document.getElementById(
+        'form-validation',
+      );
+      addedAlert.innerHTML = 'Please enter a new valid book';
+      addedAlert.style.color = 'red';
+      setTimeout(() => {
+        UserInterface.titleInput.value = '';
+        UserInterface.authorInput.value = '';
+
+        addedAlert.innerHTML = '';
+      }, 1000);
+    }
   }
 
   static removeBook(book, index) {
@@ -103,6 +132,14 @@ class UserInterface {
     removeButtonContainer.append(removeButton);
     bookContainer.append(removeButtonContainer);
     UserInterface.container.appendChild(bookContainer);
+  }
+
+  static IsValid(book) {
+    return !!(book.title && book.value);
+  }
+
+  static IsDuplicate(book) {
+    return books.includes(book);
   }
 }
 

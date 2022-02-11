@@ -497,3 +497,9 @@ small {
   font-size: 16px;
   font-family: var(--inter);
 }
+
+#form-validation {
+  text-align: center;
+  align-self: center;
+  color: white;
+}
